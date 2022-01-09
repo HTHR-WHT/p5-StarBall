@@ -20,8 +20,9 @@ function bigBang() {
 //SPRITE helpers
 function checkBoundaries(sprite) {
   //limit the sprite movements
-  if (sprite.position.x < 0) sprite.position.x = 0;
-  if (sprite.position.y < 0) sprite.position.y = 0;
-  if (sprite.position.x > SCENE_W) sprite.position.x = SCENE_W;
-  if (sprite.position.y > SCENE_H) sprite.position.y = SCENE_H;
+  if (sprite.position.x < -width) sprite.position.x = -width;
+  if (sprite.position.y < -height) sprite.position.y = -height;
+  if (sprite.position.x > SCENE_W + width) sprite.position.x = SCENE_W + width;
+  if (sprite.position.y > SCENE_H + height)
+    sprite.position.y = SCENE_H + height;
 }

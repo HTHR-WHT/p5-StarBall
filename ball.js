@@ -22,7 +22,7 @@ function makeBallSprite() {
     image(face, this.deltaX * 2, this.deltaY * 2);
   };
 
-  ball.maxSpeed = 20;
+  ball.maxSpeed = 50;
 }
 
 // function yeehaw() {
