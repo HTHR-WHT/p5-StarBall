@@ -101,7 +101,7 @@ function draw() {
 
     //when ball bumps into aliens
     if (ball.overlap(aliens)) {
-      spin(ball, aliens);
+      // spin(ball, aliens);
       push();
       fill(255, 255, 0);
       textSize(33);
@@ -110,12 +110,20 @@ function draw() {
       pop();
     }
 
-    function spin(ball, group) {
-      ball.bounce(group);
-      group.velocity = 0.25;
-      group._rotation = 2;
-      group.rotationSpeed = 2;
+    aliens.bounce(ball, spin);
+    aliens.rotation = 1;
+    // ball.overlap(aliens, spin);
+
+    function spin(ball) {
+      aliens.velocity = 0.25;
+      ball.rotationSpeed = 1;
     }
+    // function spin(ball, group) {
+    //   ball.bounce(group);
+    //   group.velocity = 0.25;
+    //   group._rotation = 2;
+    //   group.rotationSpeed = 2;
+    // }
     //when ball catches spaceCandys
     if (ball.overlap(spaceCandys)) {
       push();
