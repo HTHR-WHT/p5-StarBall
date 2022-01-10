@@ -100,6 +100,12 @@ function draw() {
     //when ball bumps into aliens
     if (ball.overlap(aliens)) {
       spin(ball, aliens);
+      push();
+      fill(255, 255, 0);
+      textSize(33);
+      textFont(ballFont);
+      text("POW!", ball.position.x + -75, ball.position.y + -75);
+      pop();
     }
 
     function spin(ball, group) {
