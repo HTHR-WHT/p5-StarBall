@@ -26,3 +26,12 @@ function checkBoundaries(sprite) {
   if (sprite.position.y > SCENE_H + height)
     sprite.position.y = SCENE_H + height;
 }
+
+function bounceBoundaries(sprites) {
+  for (let i = 0; i < sprites.length; i++) {
+    if (sprites[i].position.x < -width) sprites[i].velocity.x *= -1;
+    if (sprites[i].position.y < -height) sprites[i].velocity.y *= -1;
+    if (sprites[i].position.x > SCENE_W + width) sprites[i].velocity.x *= -1;
+    if (sprites[i].position.y > SCENE_H + height) sprites[i].velocity.y *= -1;
+  }
+}

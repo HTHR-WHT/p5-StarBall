@@ -52,18 +52,19 @@ function draw() {
 
   if (!started) {
     // STARBALL text;
+    let wave = sin(radians(frameCount * 5));
     push();
     fill(238, 130, 238);
     textSize(150);
     textFont(startFont);
-    text("STARBALL", width / 2, height / 2);
+    text("STARBALL", width / 2, height / 2 + wave * 3);
     pop();
     // play text
     push();
     fill(255, 0, 255);
-    textSize(50);
+    textSize(40);
     textFont("sans-serif");
-    text("start", width / 2, height / 1.75);
+    text("START", width / 2, height / 1.75);
     pop();
   } else {
     //set the camera position to the ball position
@@ -80,6 +81,7 @@ function draw() {
 
     //limit the sprite movements
     checkBoundaries(ball);
+    bounceBoundaries(aliens);
     //then ball
     drawSprite(ball);
     //then aliens
@@ -101,7 +103,6 @@ function draw() {
 
     //when ball bumps into aliens
     if (ball.overlap(aliens)) {
-      // spin(ball, aliens);
       push();
       fill(255, 255, 0);
       textSize(33);
@@ -112,19 +113,16 @@ function draw() {
 
     aliens.bounce(ball, spin);
     aliens.rotation = 1;
-    // ball.overlap(aliens, spin);
+
+    aliens.bounce(aliens, spin);
+    aliens.rotation = 2;
 
     function spin(ball) {
       aliens.velocity = 0.25;
       ball.rotationSpeed = 1;
     }
-    // function spin(ball, group) {
-    //   ball.bounce(group);
-    //   group.velocity = 0.25;
-    //   group._rotation = 2;
-    //   group.rotationSpeed = 2;
-    // }
-    //when ball catches spaceCandys
+
+    //when ball eats spaceCandys
     if (ball.overlap(spaceCandys)) {
       push();
       fill(255, 255, 0);
