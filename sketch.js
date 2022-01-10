@@ -11,6 +11,8 @@ let aliens;
 let spaceCandy;
 let spaceCandys;
 let wave;
+let starPosArray = [];
+let starSizeArray = [];
 let canvas;
 let started = false;
 let SCENE_W = 5000;
@@ -33,6 +35,7 @@ function setup() {
   makeClouds();
   makeAlienSprites();
   makeSpaceCandySprites();
+  randomizeStarData();
 }
 
 function playClick() {
@@ -50,10 +53,12 @@ function draw() {
   //draw the scene
   //stars first
   drawSprites(space);
+  makeStartStars();
 
   wave = sin(radians(frameCount * 5));
 
   if (!started) {
+    //make start screen stars
     // STARBALL text;
     push();
     textSize(150);
