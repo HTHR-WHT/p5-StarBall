@@ -10,6 +10,8 @@ function makeAlienSprites() {
       random(-width, SCENE_W + width), //width is canvas (display) Width: 1440
       random(-height, SCENE_H + height) //height is canvas (display) Height: 900
     );
+    alien.setCollider("rectangle", 0, 0, 125, 125);
+
     push();
     alien.draw = function () {
       fill(50, 205, 50);

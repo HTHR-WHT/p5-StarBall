@@ -1,7 +1,7 @@
 //ball sprite logic
 
 function makeBallSprite() {
-  ball = createSprite(400, 200, 5, 5);
+  ball = createSprite(400, 200, 100, 100);
 
   ball.draw = function () {
     //the center of the sprite will be point 0,0
@@ -24,11 +24,3 @@ function makeBallSprite() {
 
   ball.maxSpeed = 50;
 }
-
-// function yeehaw() {
-//   push();
-//   let yeehaw = createDiv("yeeeeHAW!");
-//   yeehaw.style("font-size", "33px");
-//   yeehaw.style("color", "#ADFF2F");
-//   pop();
-// }

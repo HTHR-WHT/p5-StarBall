@@ -3,9 +3,11 @@
 let ball;
 let face;
 let alienFace;
+// let starCandy;
 let space;
 let clouds;
 let aliens;
+let spaceCandys;
 let canvas;
 let started = false;
 let SCENE_W = 5000;
@@ -14,6 +16,7 @@ let SCENE_H = 10000;
 function preload() {
   face = loadImage("assets/face.png");
   alienFace = loadImage("assets/alien.png");
+  // starCandy = loadImage("assets/starCandy.png");
   ballFont = loadFont("assets/FredokaOne-Regular.ttf");
   startFont = loadFont("assets/PermanentMarker-Regular.ttf");
 }
@@ -26,6 +29,7 @@ function setup() {
   bigBang();
   makeClouds();
   makeAlienSprites();
+  makeSpaceCandySprites();
 }
 
 function playClick() {
@@ -80,6 +84,8 @@ function draw() {
     drawSprites(aliens);
     //clouds next
     drawSprites(clouds);
+    //then spaceCandys
+    drawSprites(spaceCandys);
 
     //when ball passes through clouds
     if (ball.overlap(clouds)) {
@@ -87,11 +93,27 @@ function draw() {
       fill(255, 255, 0);
       textSize(33);
       textFont(ballFont);
-      text("yeeeeHAW!", ball.position.x + 30, ball.position.y + 5);
+      text("YEEEEHAW!", ball.position.x + 30, ball.position.y + 5);
       pop();
     }
 
     //when ball bumps into aliens
+    if (ball.overlap(aliens)) {
+      spin(ball, aliens);
+    }
+
+    function spin(ball, group) {
+      group.velocity = 0.25;
+      group.rotationSpeed = 2;
+      group.rotation = 1;
+      ball.bounce(group);
+    }
+    // ball.bounce(spaceCandys, eat);
+
+    // function eat(ball, spaceCandy) {
+    //
+    //   spaceCandy.remove();
+    // }
 
     //I can turn on and off the camera at any point to restore
     //the normal drawing coordinates, the frame will be drawn at
