@@ -6,7 +6,9 @@ let alienFace;
 // let starCandy;
 let space;
 let clouds;
+// let alien;
 let aliens;
+let spaceCandy;
 let spaceCandys;
 let canvas;
 let started = false;
@@ -93,7 +95,7 @@ function draw() {
       fill(255, 255, 0);
       textSize(33);
       textFont(ballFont);
-      text("YEEEEHAW!", ball.position.x + 30, ball.position.y + 5);
+      text("YEEEEHAW!", ball.position.x + 15, ball.position.y + -75);
       pop();
     }
 
@@ -104,22 +106,31 @@ function draw() {
       fill(255, 255, 0);
       textSize(33);
       textFont(ballFont);
-      text("POW!", ball.position.x + -75, ball.position.y + -75);
+      text("POW!", ball.position.x + 15, ball.position.y + -75);
       pop();
     }
 
     function spin(ball, group) {
-      group.velocity = 0.25;
-      group.rotationSpeed = 2;
-      group.rotation = 1;
       ball.bounce(group);
+      group.velocity = 0.25;
+      group._rotation = 2;
+      group.rotationSpeed = 2;
     }
-    // ball.bounce(spaceCandys, eat);
+    //when ball catches spaceCandys
+    if (ball.overlap(spaceCandys)) {
+      push();
+      fill(255, 255, 0);
+      textSize(33);
+      textFont(ballFont);
+      text("NOM! NOM! NOM!", ball.position.x + 15, ball.position.y + -75);
+      pop();
+    }
 
-    // function eat(ball, spaceCandy) {
-    //
-    //   spaceCandy.remove();
-    // }
+    ball.overlap(spaceCandys, eat);
+
+    function eat(ball, group) {
+      group.remove();
+    }
 
     //I can turn on and off the camera at any point to restore
     //the normal drawing coordinates, the frame will be drawn at

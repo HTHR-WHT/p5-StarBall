@@ -12,6 +12,7 @@ function makeAlienSprites() {
     );
     alien.setCollider("rectangle", 0, 0, 125, 125);
     alien.mass = 5;
+    alien.maxSpeed = 20;
     push();
     alien.draw = function () {
       fill(50, 205, 50);

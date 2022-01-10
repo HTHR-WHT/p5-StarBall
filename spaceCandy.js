@@ -10,13 +10,14 @@ function makeSpaceCandySprites() {
       random(-width, SCENE_W + width), //width is canvas (display) Width: 1440
       random(-height, SCENE_H + height) //height is canvas (display) Height: 900
     );
-    spaceCandy.setCollider("circle", 0, 0, 50);
+    spaceCandy.setCollider("circle", 0, 0, 35);
     spaceCandy.draw = function () {
       let angle = TWO_PI / 5;
       let halfAngle = angle / 2.0;
       beginShape();
       fill(255, 215, 0);
-      translate(width * 0.8, height * 0.5);
+      // translate(width * 0.8, height * 0.5);
+      translate(0, 0);
       rotate(frameCount / -100.0);
       scale(0.5);
       for (let a = 0; a < TWO_PI; a += angle) {
