@@ -13,6 +13,7 @@ let spaceCandys;
 let wave;
 let starPosArray = [];
 let starSizeArray = [];
+let starCursor;
 let canvas;
 let started = false;
 let SCENE_W = 5000;
@@ -27,6 +28,7 @@ function preload() {
 }
 
 function setup() {
+  noCursor();
   textAlign(CENTER);
   canvas = createCanvas(displayWidth, displayHeight);
   canvas.mouseClicked(playClick);
@@ -73,6 +75,7 @@ function draw() {
     fill(255, 0, 255);
     textSize(40);
     textFont("sans-serif");
+    textStyle("italic");
     text("START", width / 2, height / 1.75);
     pop();
   } else {
@@ -152,4 +155,10 @@ function draw() {
     //the absolute 0,0 (try to see what happens if you don't turn it off
     camera.off();
   }
+  push();
+  fill(255, 218, 185);
+  translate(mouseX, mouseY);
+  rotate(frameCount / 200.0);
+  starCursor = star(0, 0, 2.25, 50, 6);
+  pop();
 }
