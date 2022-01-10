@@ -10,6 +10,7 @@ let clouds;
 let aliens;
 let spaceCandy;
 let spaceCandys;
+let wave;
 let canvas;
 let started = false;
 let SCENE_W = 5000;
@@ -50,9 +51,10 @@ function draw() {
   //stars first
   drawSprites(space);
 
+  wave = sin(radians(frameCount * 5));
+
   if (!started) {
     // STARBALL text;
-    let wave = sin(radians(frameCount * 5));
     push();
     fill(238, 130, 238);
     textSize(150);

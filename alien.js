@@ -16,7 +16,7 @@ function makeAlienSprites() {
     push();
     alien.draw = function () {
       fill(50, 205, 50);
-      rect(0, 0, 100, 100, 10);
+      rect(0, wave * 8, 100, 100, 10);
       alienFace.resize(85, 0);
       //   image(alienFace, this.x, this.y);
       image(alienFace, this.deltaX * 2, this.deltaY * 2);
