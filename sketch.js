@@ -56,9 +56,11 @@ function draw() {
   if (!started) {
     // STARBALL text;
     push();
-    fill(238, 130, 238);
     textSize(150);
     textFont(startFont);
+    fill(238, 130, 238, 55);
+    text("STARBALL", width / 2 - 15, height / 2 + wave * 3 + 15);
+    fill(238, 130, 238);
     text("STARBALL", width / 2, height / 2 + wave * 3);
     pop();
     // play text
