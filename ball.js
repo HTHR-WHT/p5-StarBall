@@ -23,4 +23,5 @@ function makeBallSprite() {
   };
 
   ball.maxSpeed = 50;
+  ball.mass = 2;
 }
